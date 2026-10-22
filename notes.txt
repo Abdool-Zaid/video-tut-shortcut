@@ -1,4 +1,6 @@
  compiler 
     https://caiorss.github.io/bookmarklet-maker/
 
-
+TODO:
+1. add function to format string 
+2. get string to prefix search query 
