@@ -4,8 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bookmarklet test page</title>
+    <style>
+        /* for dark mode */
+        *{
+            color: green;
+            background-color: black;
+        }
+    </style>
 </head>
 <body>
-    <h1>test</h1>
+    <script>
+        window.addEventListener('load',()=>{
+            let rand_num = Math.round(Math.random()*100)
+            console.log("page has loaded ", rand_num )
+
+            // dialog
+
+            let search_dialog = document.createElement("dialog")
+            let search_field = document.createElement("input")
+            let search_btn = document.createElement("button")
+
+            search_btn.textContent = rand_num // TODO: switch to search btn text for prod
+            search_field.defaultValue = rand_num 
+
+            search_dialog.appendChild(search_field)
+            search_dialog.appendChild(search_btn)
+        
+
+            document.body.appendChild(search_dialog)
+            search_dialog.showModal()
+
+
+        })
+    </script>
 </body>
 </html>
