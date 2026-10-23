@@ -14,7 +14,7 @@
 </head>
 <body>
     <script>
-        window.addEventListener('load',()=>{
+        window.addEventListener("load",()=>{
             let rand_num = Math.round(Math.random()*100)
             console.log("page has loaded ", rand_num )
 
@@ -32,9 +32,29 @@
         
 
             document.body.appendChild(search_dialog)
+            search_btn.addEventListener("click",()=>{
+               console.log(search_youtube())
+               open_new_window(search_youtube())
+            })
             search_dialog.showModal()
 
 
+            
+            function search_youtube () {
+                let slug = search_field.value
+                let url_prefix = new URL("https://www.youtube.com/results?")
+                let search_parameter = new URLSearchParams(url_prefix.search)
+                search_parameter.append("search_query", slug)
+                
+                let full_url = new URL(url_prefix+ search_parameter.toString()) 
+                return full_url
+
+            }
+
+            function open_new_window (url){
+                console.log(url)
+                window.open(url.href, "youtube");
+            }
         })
     </script>
 </body>

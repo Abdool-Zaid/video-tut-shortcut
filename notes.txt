@@ -2,5 +2,11 @@
     https://caiorss.github.io/bookmarklet-maker/
 
 TODO:
-1. add function to format string 
-2. get string to prefix search query 
+complete button functionality
+1. add enter key to search
+2. needs to close modal
+
+
+
+example url 
+https://www.youtube.com/results?search_query=how+to+make+banana+bread
