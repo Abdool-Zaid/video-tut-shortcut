@@ -10,6 +10,7 @@
     <script>
         window.addEventListener("load",()=>{
             let rand_num = Math.round(Math.random()*100)
+            let default_search = "fun facts about number " //TODO: use as search value if field is blank
 
             // dialog
 
@@ -18,7 +19,7 @@
             let search_btn = document.createElement("button")
 
             search_btn.textContent = "search"
-            search_field.placeholder = "fun facts about number " + rand_num 
+            search_field.placeholder = default_search + rand_num 
 
             search_dialog.style.color = "green"
             search_dialog.style.backgroundColor ="black"
@@ -34,7 +35,7 @@
             document.body.appendChild(search_dialog)
             search_btn.addEventListener("click",()=>{
                open_new_window(search_youtube())
-               search_dialog.close()
+               search_dialog.close() 
             })
             search_dialog.showModal()
 
