@@ -5,6 +5,7 @@ TODO:
 complete button functionality
 1. add enter key to search
 2. needs to close modal
+3. add sanitization
 
 
 

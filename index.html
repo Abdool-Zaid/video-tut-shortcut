@@ -4,19 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bookmarklet test page</title>
-    <style>
-        /* for dark mode */
-        *{
-            color: green;
-            background-color: black;
-        }
-    </style>
+   
 </head>
 <body>
     <script>
         window.addEventListener("load",()=>{
             let rand_num = Math.round(Math.random()*100)
-            console.log("page has loaded ", rand_num )
 
             // dialog
 
@@ -24,17 +17,24 @@
             let search_field = document.createElement("input")
             let search_btn = document.createElement("button")
 
-            search_btn.textContent = rand_num // TODO: switch to search btn text for prod
-            search_field.placeholder = rand_num 
+            search_btn.textContent = "search"
+            search_field.placeholder = "fun facts about number " + rand_num 
+
+            search_dialog.style.color = "green"
+            search_dialog.style.backgroundColor ="black"
 
             search_dialog.appendChild(search_field)
             search_dialog.appendChild(search_btn)
-        
 
+            for (let child of search_dialog.children){
+              child.style.backgroundColor = "black"
+              child.style.color = "green"
+            }
+        
             document.body.appendChild(search_dialog)
             search_btn.addEventListener("click",()=>{
-               console.log(search_youtube())
                open_new_window(search_youtube())
+               search_dialog.close()
             })
             search_dialog.showModal()
 
@@ -52,8 +52,8 @@
             }
 
             function open_new_window (url){
-                console.log(url)
                 window.open(url.href, "youtube");
+
             }
         })
     </script>
