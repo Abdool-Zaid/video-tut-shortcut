@@ -10,7 +10,7 @@
     <script>
         window.addEventListener("load",()=>{
             let rand_num = Math.round(Math.random()*100)
-            let default_search = "fun facts about number " //TODO: use as search value if field is blank
+            let default_search = "fun facts about number " + rand_num  
 
             // dialog
 
@@ -19,7 +19,7 @@
             let search_btn = document.createElement("button")
 
             search_btn.textContent = "search"
-            search_field.placeholder = default_search + rand_num 
+            search_field.placeholder = default_search
 
             search_dialog.style.color = "green"
             search_dialog.style.backgroundColor ="black"
@@ -27,7 +27,7 @@
             search_dialog.appendChild(search_field)
             search_dialog.appendChild(search_btn)
 
-            for (let child of search_dialog.children){
+            for (let child of search_dialog.children){ //might want to switch to individual styling, but character limit should be considered
               child.style.backgroundColor = "black"
               child.style.color = "green"
             }
@@ -42,12 +42,13 @@
 
             
             function search_youtube () {
-                let slug = search_field.value
+                let slug = search_field.value.length > 0 ? search_field.value : default_search 
+                
                 let url_prefix = new URL("https://www.youtube.com/results?")
                 let search_parameter = new URLSearchParams(url_prefix.search)
                 search_parameter.append("search_query", slug)
                 
-                let full_url = new URL(url_prefix+ search_parameter.toString()) 
+                let full_url = new URL(url_prefix + search_parameter.toString()) 
                 return full_url
 
             }
