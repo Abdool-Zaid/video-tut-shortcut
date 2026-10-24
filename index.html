@@ -36,6 +36,7 @@
             search_btn.addEventListener("click",()=>{
                open_new_window(search_youtube())
                search_dialog.close() 
+                document.body.removeChild(search_dialog)
             })
             search_dialog.showModal()
 
