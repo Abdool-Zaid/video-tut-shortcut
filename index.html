@@ -9,11 +9,9 @@
 <body>
     <script>
         window.addEventListener("load",()=>{
+            //include in compile
             let rand_num = Math.round(Math.random()*100)
             let default_search = "fun facts about number " + rand_num  
-
-            // dialog
-
             let search_dialog = document.createElement("dialog")
             let search_field = document.createElement("input")
             let search_btn = document.createElement("button")
@@ -27,7 +25,7 @@
             search_dialog.appendChild(search_field)
             search_dialog.appendChild(search_btn)
 
-            for (let child of search_dialog.children){ //might want to switch to individual styling, but character limit should be considered
+            for (let child of search_dialog.children){ 
               child.style.backgroundColor = "black"
               child.style.color = "green"
             }
@@ -35,10 +33,10 @@
             document.body.appendChild(search_dialog)
             search_btn.addEventListener("click",()=>{
                open_new_window(search_youtube())
-               search_dialog.close() 
+               search_dialog.close() // investigate if this line is needed 
                 document.body.removeChild(search_dialog)
             })
-            search_dialog.showModal()
+            search_dialog.showModal() //init
 
 
             
@@ -58,6 +56,7 @@
                 window.open(url.href, "youtube");
 
             }
+            //include in compile
         })
     </script>
 </body>
