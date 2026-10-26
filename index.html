@@ -19,17 +19,19 @@
             search_btn.textContent = "search"
             search_field.placeholder = default_search
 
-            search_dialog.style.color = "green"
+            search_dialog.style.color = "green" // need to update css
             search_dialog.style.backgroundColor ="black"
 
-            search_dialog.appendChild(search_field)
-            search_dialog.appendChild(search_btn)
-
+        
             for (let child of search_dialog.children){ 
               child.style.backgroundColor = "black"
               child.style.color = "green"
             }
         
+
+                search_dialog.appendChild(search_field)
+            search_dialog.appendChild(search_btn)
+
             document.body.appendChild(search_dialog)
             search_btn.addEventListener("click",()=>{
                run_search()
