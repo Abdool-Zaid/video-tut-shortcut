@@ -38,33 +38,38 @@
             }
         
             document.body.appendChild(search_dialog)
-let newX = 0, newY = 0, startX = 0, startY = 0;
 
+            // drag code 
+            let newX = 0, newY = 0, startX = 0, startY = 0;
+            
             search_dialog.addEventListener("mousedown",mouseDown)
 
             function mouseDown(e){
-    startX = e.clientX
-    startY = e.clientY
+                startX = e.clientX
+                startY = e.clientY
+                
+                document.addEventListener('mousemove', mouseMove)
+                document.addEventListener('mouseup', mouseUp)
+            }
+            
+            function mouseMove(e){
+                newX = startX - e.clientX 
+                newY = startY - e.clientY 
+                
+                startX = e.clientX
+                startY = e.clientY
+                console.log(search_dialog.offsetTop )
+                
+                search_dialog.style.top = (search_dialog.offsetTop - newY) + 'px'
+                search_dialog.style.left = (search_dialog.offsetLeft - newX) + 'px'
+            }
+            
+            function mouseUp(e){
+                document.removeEventListener('mousemove', mouseMove)
+            }
+            // drag code 
 
-    document.addEventListener('mousemove', mouseMove)
-    document.addEventListener('mouseup', mouseUp)
-}
-
-function mouseMove(e){
-    newX = startX - e.clientX 
-    newY = startY - e.clientY 
-  
-    startX = e.clientX
-    startY = e.clientY
-    console.log(search_dialog.offsetTop )
-
-    search_dialog.style.top = (search_dialog.offsetTop - newY) + 'px'
-    search_dialog.style.left = (search_dialog.offsetLeft - newX) + 'px'
-}
-
-function mouseUp(e){
-    document.removeEventListener('mousemove', mouseMove)
-}
+            
             search_btn.addEventListener("click",()=>{
                open_new_window(search_youtube())
                search_dialog.close() // investigate if this line is needed 

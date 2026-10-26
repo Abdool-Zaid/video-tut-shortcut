@@ -3,7 +3,9 @@
 
 TODO:
 complete button functionality
-1. need to add drag feature to dialog
+1. need to fix positioning bug 
+example code here
+https://codepen.io/dennisivy/pen/VwNEPvY
 
 
 
