@@ -11,3 +11,13 @@ complete button functionality
 
 example url 
 https://www.youtube.com/results?search_query=how+to+make+banana+bread
+
+
+styleling notes
+1. https://codepen.io/AlbertFeynman/pen/BPvzWZ
+    1. clean design but is slower due to opening animation, maybe reverse the animation for closing?
+        will need the search results to open after it then
+2. https://codepen.io/menzer/pen/nYOpyD
+    1. simple design but doesn't add much
+    2. good input field handling
+    
