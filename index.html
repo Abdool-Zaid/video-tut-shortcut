@@ -11,7 +11,7 @@
         window.addEventListener("load",()=>{
             //include in compile
             let rand_num = Math.round(Math.random()*100)
-            let default_search = "fun facts about number " + rand_num  
+            let default_search = "fun facts about  the number " + rand_num  
             let search_dialog = document.createElement("dialog")
             let search_field = document.createElement("input")
             let search_btn = document.createElement("button")
@@ -19,12 +19,35 @@
 
             search_btn.textContent = "search"
             search_field.placeholder = default_search
-            style_sheet.insertRule(" .dialog {background-color : black} ")
-            style_sheet.insertRule(" .dialog_inverse {background-color : white} ")
+
+            style_sheet.insertRule(` .dialog {
+            background-color : black;
+            display:flex;
+            width:34vw;
+            border:none
+            } `)
+             style_sheet.insertRule(`#search_field{
+              	box-sizing: content-box;
+                color:white;
+                width: 28vw;
+	            -webkit-appearance: none;
+	            -moz-appearance: none;
+
+             }`)
+             style_sheet.insertRule(`#search_field:focus {
+                outline: none;
+                 box-shadow: none;
+                border-color: inherit;
+            }`);
+            style_sheet.insertRule(` .dialog_inverse {
+            background-color : white;   
+            border: 1px white;
+            } `)
 
 
             search_dialog.classList.add("dialog")
             search_field.classList.add("dialog")
+            search_field.id="search_field"
             search_btn.classList.add("dialog_inverse")
             search_dialog.appendChild(search_field)
             search_dialog.appendChild(search_btn)
