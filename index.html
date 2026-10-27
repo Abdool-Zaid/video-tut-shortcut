@@ -27,7 +27,6 @@
             
             search_dialog.style.color = "green"
             search_dialog.style.backgroundColor ="black"
-            search_dialog.setAttribute("draggable", true)
             
             search_dialog.appendChild(search_field)
             search_dialog.appendChild(search_btn)
@@ -37,19 +36,20 @@
                 child.style.color = "green"
             }
             
+            
             document.body.appendChild(search_dialog)
-
+            
+            
             // drag code 
             let newX = 0, newY = 0, startX = 0, startY = 0;
-            let margin = [];//TODO: account for margin on first move
             
             search_dialog.addEventListener("mousedown",mouseDown)
             
             function mouseDown(e){
-                search_dialog.style.margin="0PX"
+                
                 startX = e.clientX
                 startY = e.clientY
-                
+              
                 document.addEventListener('mousemove', mouseMove)
                 document.addEventListener('mouseup', mouseUp)
             }
@@ -60,10 +60,10 @@
                 
                 startX = e.clientX
                 startY = e.clientY
-                console.log("x: ", e.clientX , " y: ", e.clientY)
                 
                 search_dialog.style.top = (search_dialog.offsetTop - newY) + 'px'
                 search_dialog.style.left = (search_dialog.offsetLeft - newX) + 'px'
+                search_dialog.style.margin= 0; // current margin fills the page and breaks the calc, changing it after the first move is seamless
             }
             
             function mouseUp(e){
