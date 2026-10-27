@@ -3,7 +3,9 @@
 
 TODO:
 complete button functionality
-1. need to fix positioning bug 
+1. add close button
+2. correct height and font size 
+3. 
 example code here
 https://codepen.io/dennisivy/pen/VwNEPvY
 

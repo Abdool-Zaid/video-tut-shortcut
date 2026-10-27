@@ -24,7 +24,8 @@
 
             search_btn.textContent = "search"
             search_field.placeholder = default_search
-
+            search_field.setAttribute("writingsuggestions", false)
+            search_field.setAttribute("autocomplete", "off");
             style_sheet.insertRule(` .dialog {
             background-color : black;
             padding:0;
@@ -144,3 +145,4 @@
     </script>
 </body>
 </html>
+ng 
