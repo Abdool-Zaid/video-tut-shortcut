@@ -3,9 +3,9 @@
 
 TODO:
 complete button functionality
-1. add enter key to search
-2. needs to close modal
-3. add sanitization
+1. need to fix positioning bug 
+example code here
+https://codepen.io/dennisivy/pen/VwNEPvY
 
 
 
