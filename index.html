@@ -20,12 +20,21 @@
             let search_dialog = document.createElement("dialog")
             let search_field = document.createElement("input")
             let search_btn = document.createElement("button")
+            let close_btn = document.createElement("button")
+            let line_one = document.createElement("div")
+            let line_two = document.createElement("div")
             let style_sheet =  new CSSStyleSheet()
 
-            search_btn.textContent = "search"
+            search_btn.textContent = "Search"
+            close_btn.textContent ="Dismiss"
             search_field.placeholder = default_search
             search_field.setAttribute("writingsuggestions", false)
             search_field.setAttribute("autocomplete", "off");
+            style_sheet.insertRule(`.search_dialog_reset{
+            border-radius:0;
+            padding:0;
+            margin:0;
+            }`)
             style_sheet.insertRule(` .dialog {
             background-color : black;
             padding:0;
@@ -58,11 +67,18 @@
 
 
             search_dialog.classList.add("dialog")
+            search_field.classList.add("search_dialog_reset")
             search_field.classList.add("dialog")
             search_field.id="search_field"
+            search_btn.classList.add("search_dialog_reset")
             search_btn.classList.add("dialog_inverse")
-            search_dialog.appendChild(search_field)
-            search_dialog.appendChild(search_btn)
+            close_btn.classList.add("search_dialog_reset")
+            close_btn.classList.add("dialog_inverse")
+            line_one.appendChild(search_field)
+            line_one.appendChild(search_btn)
+            line_two.appendChild(close_btn)
+            search_dialog.appendChild(line_one)
+            search_dialog.appendChild(line_two)
             
             document.adoptedStyleSheets.push(style_sheet)// injection happens here
             document.body.appendChild(search_dialog) // injection happens here
@@ -105,9 +121,7 @@
             // drag code 
 
 
-            search_btn.addEventListener("click",()=>{
-               run_search()
-            })
+            search_btn.addEventListener("click",run_search)
 
             search_field.addEventListener("keydown",(event)=>{
                
@@ -115,6 +129,10 @@
                     run_search()
                 }
             })
+            close_btn.addEventListener("click", () => {
+                document.body.removeChild(search_dialog)
+            });
+
             search_dialog.show() //init
 
 
@@ -137,7 +155,6 @@
             }
             function run_search(){
                 open_new_window(search_youtube())
-               search_dialog.close() // investigate if this line is needed 
                 document.body.removeChild(search_dialog)
             }
             //include in compile
@@ -145,4 +162,3 @@
     </script>
 </body>
 </html>
-ng 
