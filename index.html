@@ -83,14 +83,19 @@ style_sheet.insertRule(`
                 color:white;
                 height:2rem;
                 padding-inline:1%;
+                    font-size: 1em;
 	            -webkit-appearance: none;
 	            -moz-appearance: none;
 
              }`)
+
              style_sheet.insertRule(`#search_field:focus {
                 outline: none;
-                 box-shadow: none;
+                box-shadow: none;
                 border-color: inherit;
+            }`);
+            style_sheet.insertRule(`#search_field::placeholder {
+            color: white;
             }`);
             style_sheet.insertRule(` .dialog_inverse {
             background-color : white;   

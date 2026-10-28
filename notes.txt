@@ -3,9 +3,8 @@
 
 TODO:
 complete button functionality
-1. add close button
 2. correct height and font size 
-3. 
+ 
 example code here
 https://codepen.io/dennisivy/pen/VwNEPvY
 
@@ -24,11 +23,6 @@ styleling notes
     2. good input field handling
 
 
-.parent {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 0px;
-}
+
     
         
