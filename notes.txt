@@ -22,4 +22,13 @@ styleling notes
 2. https://codepen.io/menzer/pen/nYOpyD
     1. simple design but doesn't add much
     2. good input field handling
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0px;
+}
     
+        

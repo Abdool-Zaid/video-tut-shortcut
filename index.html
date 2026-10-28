@@ -21,8 +21,7 @@
             let search_field = document.createElement("input")
             let search_btn = document.createElement("button")
             let close_btn = document.createElement("button")
-            let line_one = document.createElement("div")
-            let line_two = document.createElement("div")
+            let spacer =document.createElement("div")
             let style_sheet =  new CSSStyleSheet()
 
             search_btn.textContent = "Search"
@@ -35,20 +34,54 @@
             padding:0;
             margin:0;
             }`)
+
+            style_sheet.insertRule(`.parent {
+display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0px;
+    width:30vw;
+}`)
+style_sheet.insertRule(`
+.div1 {
+    grid-column: span 5 / span 5;
+    grid-row: span 2 / span 2;
+}
+`)
+
+style_sheet.insertRule(`
+.div2 {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    grid-column-start: 6;
+}
+`)
+style_sheet.insertRule(`
+.div3 {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    grid-row-start: 3;
+}
+`)
+style_sheet.insertRule(`
+.div4 {
+    grid-column: span 5 / span 5;
+    grid-row: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 3;
+}
+`)
+
             style_sheet.insertRule(` .dialog {
             background-color : black;
             padding:0;
-            display:flex;
             top: 50%;
-            justify-content: flex-end;
-            width:34vw;
             border:none
             } `)
              style_sheet.insertRule(`#search_field{
               	box-sizing: content-box;
                 color:white;
                 height:2rem;
-                width: 30vw;
                 padding-inline:1%;
 	            -webkit-appearance: none;
 	            -moz-appearance: none;
@@ -67,18 +100,23 @@
 
 
             search_dialog.classList.add("dialog")
+            search_dialog.classList.add("parent")
             search_field.classList.add("search_dialog_reset")
             search_field.classList.add("dialog")
+            search_field.classList.add("div1")
             search_field.id="search_field"
             search_btn.classList.add("search_dialog_reset")
+            search_btn.classList.add("div2")
             search_btn.classList.add("dialog_inverse")
             close_btn.classList.add("search_dialog_reset")
+            close_btn.classList.add("div3")
             close_btn.classList.add("dialog_inverse")
-            line_one.appendChild(search_field)
-            line_one.appendChild(search_btn)
-            line_two.appendChild(close_btn)
-            search_dialog.appendChild(line_one)
-            search_dialog.appendChild(line_two)
+            spacer.classList.add("div4")
+
+            search_dialog.appendChild(search_field)
+            search_dialog.appendChild(search_btn)
+            search_dialog.appendChild(close_btn)
+            search_dialog.appendChild(spacer)
             
             document.adoptedStyleSheets.push(style_sheet)// injection happens here
             document.body.appendChild(search_dialog) // injection happens here
